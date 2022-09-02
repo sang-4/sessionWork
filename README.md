@@ -25,7 +25,7 @@ Start the lab by running `learn test` or keep reading for more instructions.
 Try using a Rake task to create your migration file:
 
 ```console
-$ bundle exec rake db:create_migration NAME=create_movies
+$ bundle exec rake db:create_migration NAME=create_shops
 ```
 
 Once you have a migration file, add columns like so:
@@ -33,10 +33,8 @@ Once you have a migration file, add columns like so:
 | Column Name  | Type      |
 | ------------ | --------- |
 | title        | (string)  |
-| release_date | (integer) |
-| director     | (string)  |
-| lead         | (string)  |
-| in_theaters  | (boolean) |
+| opening_date | (integer) |
+| owneer     | (string)  |
 
 After your migration is ready, run both these commands:
 
@@ -54,7 +52,7 @@ You can also run this command to generate some sample data:
 $ bundle exec rake db:seed
 ```
 
-This will run the code in the `db/seeds.rb` file in order to create some movies.
+This will run the code in the `db/seeds.rb` file in order to create some shops.
 
 Then, if you want to try out your code in the console, run:
 
@@ -67,19 +65,19 @@ order to pass the tests.
 
 ## Instructions
 
-Run `learn test` to see the tests. You'll be adding new methods to the `Movie`
-class in `app/models/movie.rb` that take advantage of Active Record's build-in
+Run `learn test` to see the tests. You'll be adding new methods to the `shop`
+class in `app/models/shop.rb` that take advantage of Active Record's build-in
 functionality.
 
-The goal of this is to add some functionality to your `Movie` class while taking
+The goal of this is to add some functionality to your `shop` class while taking
 advantage of Active Record's built-in methods. For example, you might write a
-method `Movie.find_all_movies_by_year` that finds all the movies for a given
+method `shop.find_all_shops_by_year` that finds all the shops for a given
 year:
 
 ```rb
-class Movie < ActiveRecord::Base
-  def self.find_all_movies_by_year(year)
-    Movie.where(year: year)
+class shop < ActiveRecord::Base
+  def self.find_all_shops_by_year(year)
+    shop.where(year: year)
   end
 end
 ```
@@ -96,32 +94,32 @@ are class methods (`.`).
 
 ### Create
 
-- `Movie.create_with_title`: instantiates a movie with a given title, and saves
+- `shop.create_with_title`: instantiates a shop with a given title, and saves
   it to the database
 
 ### Read
 
-- `Movie.first_movie`: returns the first item in the table
-- `Movie.last_movie`: returns the last item in the table
-- `Movie.movie_count`: returns the number of records in the table
-- `Movie.find_movie_with_id`: returns a movie from the table based on its id
+- `shop.first_shop`: returns the first item in the table
+- `shop.last_shop`: returns the last item in the table
+- `shop.shop_count`: returns the number of records in the table
+- `shop.find_shop_with_id`: returns a shop from the table based on its id
   with the `.find` method
-- `Movie.find_movie_with_attributes`: returns a movie from the table based on
+- `shop.find_shop_with_attributes`: returns a shop from the table based on
   its attributes with the `.find_by` method
-- `Movie.find_movies_after_2002`: uses a `.where` clause to select the
-  appropriate movies released after 2002
+- `shop.find_shops_after_2002`: uses a `.where` clause to select the
+  appropriate shops released after 2002
 
 ### Update
 
-- `Movie#update_with_attributes`: updates a single movie using the `#update`
+- `shop#update_with_attributes`: updates a single shop using the `#update`
   method
-- `Movie.update_all_titles`: updates the title of all records at once using the
+- `shop.update_all_titles`: updates the title of all records at once using the
   `.update` method
 
 ### Delete
 
-- `Movie.delete_by_id`: deletes a single item with the `#destroy` method
-- `Movie.delete_all_movies`: deletes all items at once with the `.destroy_all`
+- `shop.delete_by_id`: deletes a single item with the `#destroy` method
+- `shop.delete_all_shops`: deletes all items at once with the `.destroy_all`
   method
 
 ## Resources
